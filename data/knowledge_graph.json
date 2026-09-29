@@ -1,0 +1,29 @@
+{
+  "version": "clinical-demo-v2",
+  "facts": [
+    {"id": "site-1", "subject": "facility:1", "predicate": "maps_to", "object": "site:north"},
+    {"id": "site-2", "subject": "facility:2", "predicate": "maps_to", "object": "site:south"},
+    {"id": "name-north", "subject": "site:north", "predicate": "display_name", "object": "North Hospital"},
+    {"id": "name-south", "subject": "site:south", "predicate": "display_name", "object": "South Hospital"},
+    {"id": "admit-emerg", "subject": "admit_type:EMERG", "predicate": "maps_to", "object": "unplanned"},
+    {"id": "admit-sched", "subject": "admit_type:SCHED", "predicate": "maps_to", "object": "planned"},
+    {"id": "source-direct", "subject": "admit_source:DIRECT", "predicate": "maps_to", "object": "community"},
+    {"id": "source-transfer", "subject": "admit_source:TRANSFER", "predicate": "maps_to", "object": "transfer"},
+    {"id": "disch-home", "subject": "disposition:HOME", "predicate": "maps_to", "object": "home"},
+    {"id": "disch-transfer", "subject": "disposition:TRANSFER", "predicate": "maps_to", "object": "transfer"},
+    {"id": "disch-expired", "subject": "disposition:EXPIRED", "predicate": "maps_to", "object": "expired"},
+    {"id": "los-admit-field", "subject": "metric:los", "predicate": "admit_field", "object": "clarity:PAT_ENC_HSP.HOSP_ADMSN_TIME"},
+    {"id": "los-discharge-field", "subject": "metric:los", "predicate": "discharge_field", "object": "clarity:PAT_ENC_HSP.HOSP_DISCH_TIME"},
+    {"id": "los-facility-field", "subject": "metric:los", "predicate": "facility_field", "object": "caboodle:EncounterFact.FacilityKey"},
+    {"id": "los-unit", "subject": "metric:los", "predicate": "reporting_unit", "object": "elapsed_hours"},
+    {"id": "readmit-window", "subject": "metric:readmission", "predicate": "window_days", "object": "30"},
+    {"id": "readmit-index", "subject": "metric:readmission", "predicate": "index_disposition", "object": "home"},
+    {"id": "readmit-return", "subject": "metric:readmission", "predicate": "return_admit_kind", "object": "unplanned"},
+    {"id": "readmit-exclude", "subject": "metric:readmission", "predicate": "excluded_return_source", "object": "transfer"},
+    {"id": "readmit-attribution", "subject": "metric:readmission", "predicate": "attribution", "object": "index_facility"},
+    {"id": "quality-mapping", "subject": "quality:clinical", "predicate": "min_mapping_coverage_pct", "object": "100"},
+    {"id": "quality-missing", "subject": "quality:clinical", "predicate": "max_missing_required_pct", "object": "0"},
+    {"id": "quality-orphans", "subject": "quality:clinical", "predicate": "max_orphan_joins", "object": "0"},
+    {"id": "quality-volume", "subject": "quality:clinical", "predicate": "min_eligible_per_facility", "object": "2"}
+  ]
+}

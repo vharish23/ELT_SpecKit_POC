@@ -1,0 +1,4 @@
+order_id,product_sku,quantity,unit_price,currency
+O-1,SKU-A,2,10.00,USD
+O-2,SKU-B,1,15.00,EUR
+O-3,SKU-A,3,4.00,EUR

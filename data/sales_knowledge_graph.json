@@ -1,0 +1,11 @@
+{
+  "version": "demo-v1",
+  "facts": [
+    {"id": "p-a", "subject": "product:SKU-A", "predicate": "belongs_to", "object": "category:devices"},
+    {"id": "p-b", "subject": "product:SKU-B", "predicate": "belongs_to", "object": "category:licenses"},
+    {"id": "c-dev", "subject": "category:devices", "predicate": "reports_as", "object": "hardware"},
+    {"id": "c-lic", "subject": "category:licenses", "predicate": "reports_as", "object": "software"},
+    {"id": "fx-usd", "subject": "currency:USD", "predicate": "usd_rate", "object": "1.00"},
+    {"id": "fx-eur", "subject": "currency:EUR", "predicate": "usd_rate", "object": "1.10"}
+  ]
+}

@@ -1,0 +1,10 @@
+EncounterKey,ClarityEncounterId,FacilityKey,PatientDurableKey
+E100,100,1,D1
+E101,101,2,D1
+E102,102,1,D1
+E103,103,1,D1
+E200,200,1,D2
+E201,201,2,D2
+E300,300,1,D3
+E301,301,1,D3
+E302,302,1,D3

@@ -1,0 +1,16 @@
+{
+  "graph_version": "clinical-demo-v2",
+  "target_mappings": {
+    "admit_at": "clarity:PAT_ENC_HSP.HOSP_ADMSN_TIME",
+    "admit_kind": "clarity:PAT_ENC_HSP.ADMIT_TYPE_C -> graph admit_type maps_to",
+    "admit_source": "clarity:PAT_ENC_HSP.ADMIT_SOURCE_C -> graph admit_source maps_to",
+    "clarity_csn": "caboodle:EncounterFact.ClarityEncounterId -> clarity:PAT_ENC_HSP.PAT_ENC_CSN_ID",
+    "discharge_at": "clarity:PAT_ENC_HSP.HOSP_DISCH_TIME",
+    "disposition": "clarity:PAT_ENC_HSP.DISCH_DISPOSITION_C -> graph disposition maps_to",
+    "encounter_key": "caboodle:EncounterFact.EncounterKey",
+    "facility_key": "caboodle:EncounterFact.FacilityKey",
+    "facility_name": "caboodle:FacilityDim.FacilityName (via FacilityKey; checked against graph site display_name)",
+    "los_seconds": "discharge_at - admit_at (UTC elapsed seconds)",
+    "patient_id": "caboodle:EncounterFact.PatientDurableKey -> caboodle:PatientDim.ClarityPatId (equals clarity:PAT_ENC_HSP.PAT_ID)"
+  }
+}

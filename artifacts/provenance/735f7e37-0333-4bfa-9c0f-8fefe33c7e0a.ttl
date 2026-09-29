@@ -1,0 +1,214 @@
+@prefix poc: <https://example.org/grounded-elt/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/run> a prov:Activity ;
+    prov:endedAtTime "2026-09-29T15:36:32.861616+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-09-29T15:36:32.857897+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith poc:clinical-etl ;
+    prov:wasInformedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-los>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-readmission>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/check-quality>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/normalize>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/stage> ;
+    poc:asOf "2026-05-31T00:00:00+00:00"^^xsd:dateTime .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/metric/los/1> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart> ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-los> ;
+    poc:asOf "2026-05-31T00:00:00+00:00"^^xsd:dateTime ;
+    poc:metric "los" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/metric/los/2> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart> ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-los> ;
+    poc:asOf "2026-05-31T00:00:00+00:00"^^xsd:dateTime ;
+    poc:metric "los" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/metric/readmission/1> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart> ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-readmission> ;
+    poc:asOf "2026-05-31T00:00:00+00:00"^^xsd:dateTime ;
+    poc:metric "readmission" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/metric/readmission/2> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart> ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-readmission> ;
+    poc:asOf "2026-05-31T00:00:00+00:00"^^xsd:dateTime ;
+    poc:metric "readmission" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/quality-report> a prov:Entity ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/check-quality> ;
+    poc:status "PASS" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-admit-field> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "los-admit-field" ;
+    poc:predicate "admit_field" ;
+    poc:subject "metric:los" ;
+    poc:value "clarity:PAT_ENC_HSP.HOSP_ADMSN_TIME" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-discharge-field> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "los-discharge-field" ;
+    poc:predicate "discharge_field" ;
+    poc:subject "metric:los" ;
+    poc:value "clarity:PAT_ENC_HSP.HOSP_DISCH_TIME" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-facility-field> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "los-facility-field" ;
+    poc:predicate "facility_field" ;
+    poc:subject "metric:los" ;
+    poc:value "caboodle:EncounterFact.FacilityKey" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-unit> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "los-unit" ;
+    poc:predicate "reporting_unit" ;
+    poc:subject "metric:los" ;
+    poc:value "elapsed_hours" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-mapping> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "quality-mapping" ;
+    poc:predicate "min_mapping_coverage_pct" ;
+    poc:subject "quality:clinical" ;
+    poc:value "100" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-missing> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "quality-missing" ;
+    poc:predicate "max_missing_required_pct" ;
+    poc:subject "quality:clinical" ;
+    poc:value "0" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-orphans> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "quality-orphans" ;
+    poc:predicate "max_orphan_joins" ;
+    poc:subject "quality:clinical" ;
+    poc:value "0" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-volume> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "quality-volume" ;
+    poc:predicate "min_eligible_per_facility" ;
+    poc:subject "quality:clinical" ;
+    poc:value "2" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-attribution> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "readmit-attribution" ;
+    poc:predicate "attribution" ;
+    poc:subject "metric:readmission" ;
+    poc:value "index_facility" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-exclude> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "readmit-exclude" ;
+    poc:predicate "excluded_return_source" ;
+    poc:subject "metric:readmission" ;
+    poc:value "transfer" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-index> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "readmit-index" ;
+    poc:predicate "index_disposition" ;
+    poc:subject "metric:readmission" ;
+    poc:value "home" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-return> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "readmit-return" ;
+    poc:predicate "return_admit_kind" ;
+    poc:subject "metric:readmission" ;
+    poc:value "unplanned" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-window> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> ;
+    poc:factId "readmit-window" ;
+    poc:predicate "window_days" ;
+    poc:subject "metric:readmission" ;
+    poc:value "30" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_caboodle_encounter_fact> a prov:Entity ;
+    poc:dataset "raw_caboodle_encounter_fact" ;
+    poc:sha256 "2dc51c03dc99c8b3c8c76d6725c8bf2a78c41e70af05b482bfd187fa37219a82" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_caboodle_facility_dim> a prov:Entity ;
+    poc:dataset "raw_caboodle_facility_dim" ;
+    poc:sha256 "11841bf2a3a7db65053fb4df148cb85e3504e1512c33ad11fffe2ee52761163b" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_caboodle_patient_dim> a prov:Entity ;
+    poc:dataset "raw_caboodle_patient_dim" ;
+    poc:sha256 "99c8d6022da82f28c90612695dd42f1443a63dcb8283843608645f18221cac77" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_clarity_pat_enc_hsp> a prov:Entity ;
+    poc:dataset "raw_clarity_pat_enc_hsp" ;
+    poc:sha256 "aa19ea8def0dba19917cd0817f018261349c6869d27eed07ef4911f16937f24f" .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/check-quality> a prov:Activity ;
+    prov:used <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-mapping>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-missing>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-orphans>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/quality-volume> ;
+    prov:wasAssociatedWith poc:clinical-etl ;
+    prov:wasInformedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-readmission> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/raw-staging> a prov:Entity ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/stage> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-los> a prov:Activity ;
+    prov:used <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-python-recipe>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-admit-field>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-discharge-field>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-facility-field>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/los-unit> ;
+    prov:wasAssociatedWith poc:clinical-etl ;
+    prov:wasInformedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/normalize> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/stage> a prov:Activity ;
+    prov:used <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-python-recipe>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_caboodle_encounter_fact>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_caboodle_facility_dim>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_caboodle_patient_dim>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/source/raw_clarity_pat_enc_hsp> ;
+    prov:wasAssociatedWith poc:clinical-etl .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/calculate-readmission> a prov:Activity ;
+    prov:used <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-python-recipe>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-attribution>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-exclude>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-index>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-return>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/rule/readmit-window> ;
+    prov:wasAssociatedWith poc:clinical-etl ;
+    prov:wasInformedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/normalize> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/normalize> a prov:Activity ;
+    prov:used <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-python-recipe>,
+        <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/raw-staging> ;
+    prov:wasAssociatedWith poc:clinical-etl ;
+    prov:wasInformedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/stage> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-python-recipe> a prov:Entity ;
+    poc:sha256 "f5890b4972e27aa1d015b3e91790f929a75fce6c9c62d258df1a161dd373026c" .
+
+poc:clinical-etl a prov:SoftwareAgent .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/encounter-mart> a prov:Entity ;
+    prov:wasDerivedFrom <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/raw-staging> ;
+    prov:wasGeneratedBy <urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:activity/normalize> .
+
+<urn:grounded-elt:run:735f7e37-0333-4bfa-9c0f-8fefe33c7e0a:entity/clinical-graph> a prov:Entity ;
+    poc:sha256 "d8fd563d0ab6d5733cdee54c6088771b1ac892d5ab1f390ae988c5a6a5b2186c" ;
+    poc:version "clinical-demo-v2" .
+

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "checks": {
+    "mapping_coverage": true,
+    "missing_required": true,
+    "orphan_joins": true,
+    "eligible_per_facility": true
+  },
+  "evidence": {
+    "graph_version": "clinical-demo-v2",
+    "mapping_coverage_pct": 100,
+    "missing_required_pct": 0.0,
+    "orphan_joins": 0,
+    "eligible_by_facility": {
+      "North Hospital": 6,
+      "South Hospital": 2
+    },
+    "source_row_counts": {
+      "raw_clarity_pat_enc_hsp": 9,
+      "raw_caboodle_encounter_fact": 9,
+      "raw_caboodle_patient_dim": 3,
+      "raw_caboodle_facility_dim": 2
+    },
+    "thresholds": {
+      "min_mapping_coverage_pct": 100,
+      "max_missing_required_pct": 0,
+      "max_orphan_joins": 0,
+      "min_eligible_per_facility": 2
+    },
+    "threshold_fact_ids": [
+      "quality-mapping",
+      "quality-missing",
+      "quality-orphans",
+      "quality-volume"
+    ]
+  }
+}

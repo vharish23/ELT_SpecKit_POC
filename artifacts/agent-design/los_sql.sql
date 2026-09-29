@@ -1,0 +1,1 @@
+SELECT facility_key, facility_name, COUNT(*) AS discharged_count, ROUND(SUM(los_seconds) / 3600.0, 2) AS total_hours, ROUND(AVG(los_seconds) / 3600.0, 2) AS average_hours FROM encounter_mart WHERE datetime(discharge_at) <= datetime(:as_of) GROUP BY facility_key, facility_name

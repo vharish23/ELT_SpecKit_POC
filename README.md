@@ -2,17 +2,25 @@
 
 A **synthetic-data-only** example of [Spec Kit spec-driven development](https://github.com/github/spec-kit#spec-driven-development), [LangGraph DeepAgents](https://docs.langchain.com/oss/python/deepagents/overview) orchestration and versioned knowledge-graph grounding. See the clinical feature's [specification](specs/002-clinical-quality-elt/spec.md), [plan](specs/002-clinical-quality-elt/plan.md), [tasks](specs/002-clinical-quality-elt/tasks.md), and [convergence evidence](specs/002-clinical-quality-elt/convergence.md). The original synthetic [sales POC](specs/001-grounded-elt/spec.md) remains available.
 
-## Run the clinical example
+## Clone and run
 
-From this directory, with Python 3.11+ and `uv`:
+Install [Git](https://git-scm.com/downloads), [Python 3.12](https://www.python.org/downloads/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) first. Then, on macOS, Linux, or Windows (PowerShell), run:
 
 ```sh
-uv sync
-uv run python -m grounded_elt.cli --pipeline clinical --database demo.sqlite
-uv run python -m unittest discover -s tests -v
+git clone https://github.com/vharish23/ELT_SpecKit_POC.git
+cd ELT_SpecKit_POC
+uv sync --locked --python 3.12
+uv run --locked python -m unittest discover -s tests -q
+uv run --locked python -m grounded_elt.cli --pipeline clinical --database demo.sqlite
 ```
 
-`clinical` is the default pipeline. It runs without credentials. To change the UTC observation cutoff, pass `--as-of 2026-05-01T00:00:00`. To supply another set of **synthetic** extracts, pass `--data-dir /path/to/data` and `--clinical-graph /path/to/graph.json`; expected headers are defined in `grounded_elt/clinical.py`.
+`uv sync` creates the local `.venv` from `uv.lock`; no activation or committed virtual environment is necessary. `uv run` uses that environment. The direct clinical pipeline and tests run with the included synthetic CSVs and **do not require model credentials**. The default cutoff is 2026-05-31 UTC; `demo.sqlite` and `demo.provenance/` are generated locally and ignored by Git. The `--agent` and `--design-agents` modes require a separately configured model account (see below), internet access, and provider permissions; they are not part of the credential-free quick start.
+
+`clinical` is the default pipeline. To change the UTC observation cutoff, pass `--as-of 2026-05-01T00:00:00`. To supply another set of **synthetic** extracts, pass `--data-dir /path/to/data` and `--clinical-graph /path/to/graph.json`; expected headers are defined in `grounded_elt/clinical.py`.
+
+### Archived example artifacts
+
+`artifacts/` contains a **static snapshot from a prior synthetic run**: `clinical-demo.sqlite`, two PROV-O Turtle exports in `provenance/`, and the three-agent draft SQL and reviews in `agent-design/`. These are examples for inspection, not inputs required by the quick start. New runs write to the ignored root-level `demo.sqlite`, `demo.provenance/`, and `design-output/` instead, so the committed snapshot stays unchanged. The draft SQL is review-only and must not be executed without human approval. Do not replace or publish these snapshots with real patient data, production hashes, or small-cohort clinical aggregates. The virtual environment is intentionally excluded: it contains machine-specific paths and can be recreated with the commands above.
 
 ### Illustrative sample results (as of 2026-05-31 UTC)
 
